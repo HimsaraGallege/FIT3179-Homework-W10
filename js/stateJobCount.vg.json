@@ -1,0 +1,87 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 300,
+  "projection": {
+      "type": "equirectangular"
+  },
+  "params": [{
+          "name": "Year_selection",
+          "value": 2021,
+          "bind": {
+              "input": "range",
+              "min": 2019,
+              "max": 2021,
+              "step": 1,
+              "name": "Year:  "
+          }
+      }
+  ],
+  "layer": [{
+          "data": {
+              "url": "https://raw.githubusercontent.com/HimsaraGallege/testRepo/main/Australian-states.topojson",
+              "format": { "type": "topojson", "feature": "Australian-states" }
+          },
+          "mark": {
+              "type": "geoshape"
+          }
+      },
+      {"data": {
+              "url": "https://raw.githubusercontent.com/HimsaraGallege/testRepo/main/State_Year_Count.csv"
+          },
+          "transform": [{
+                  "lookup": "state",
+                  "from": {
+                      "data": {
+                          "url": "https://raw.githubusercontent.com/HimsaraGallege/testRepo/main/Australian-states.topojson",
+                          "format": {
+                              "type": "topojson",
+                              "feature": "Australian-states"
+                          }
+                      },
+                      "key": "properties.STATE_NAME"
+                  },
+                  "as": "geo"
+              },
+              { "filter": "datum.ListingYear == Year_selection" }
+          ],
+          "mark": { "type": "geoshape"},
+          "encoding": {
+              "shape": { "field": "geo", "type": "geojson" },
+              "color": {
+                  "field": "Count",
+                  "type": "quantitative",
+                  "scale": {
+                      "type": "threshold",
+                      "domain": [
+                                  50,
+                                  100,
+                                  200,
+                                  300,
+                                  400
+                              ],
+                      "scheme": "blues"
+                  }
+              },
+              "tooltip": [{"title": "State","field": "state", "type": "nominal"},
+                          {"title": "Listings", "field": "Count", "type": "quantitative"}]
+          }
+      },
+      {
+        "data": {"url": "https://raw.githubusercontent.com/HimsaraGallege/testRepo/main/map_cordinates.csv"},
+        "encoding": {
+          "longitude": {"field": "long", "type": "quantitative"},
+          "latitude": {"field": "lat", "type": "quantitative"}
+        },
+        "layer": [
+          {"mark": {"type": "square", "color": "red", "dx": 5}},
+          {
+            "mark": {"type": "text", "dx": 30},
+            "encoding": {"text": {"field": "city", "type": "nominal"}}
+          }
+  ]}],
+  "config": {}
+}
+
+
+

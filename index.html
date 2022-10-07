@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <h1><center>Homework Week 10</center></h1>
+
+    <div class = "main" >
+        <div class="pure-g">
+          
+          <div class="pure-u-1-2">
+            <p><b>Number of Job Listings per State for each Year:</b></p>
+            <div class="map" id="map"></div>
+            <p>
+                <br><br>
+
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porta massa et vehicula eleifend. Cras at diam at
+                est congue faucibus quis id augue. Nunc iaculis euismod velit euismod molestie. Maecenas eu odio leo. Sed tellus
+                velit, suscipit vel volutpat nec, interdum quis velit. Mauris interdum sapien sed arcu rutrum imperdiet. Vestibulum
+                ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+            
+                Nam scelerisque orci velit, sed aliquam est viverra quis. Duis purus libero, pharetra ac congue quis, tempus at
+                sapien. Proin euismod mi ut sodales aliquet. Curabitur aliquam metus eget nulla euismod tincidunt. Nullam hendrerit
+                in augue a dapibus. Vestibulum ac tincidunt nisl, ut tincidunt magna. Aliquam quis nibh eu ligula bibendum pretium
+                ac at massa. Praesent sagittis at justo id vehicula. Nunc ullamcorper purus ex, et tempor erat dignissim eget.
+                Aliquam malesuada massa id purus mattis, a imperdiet mauris rutrum. Etiam blandit mattis est, vitae sodales leo
+                facilisis sit amet. Integer eget ultrices tellus. Integer et mauris quis arcu rhoncus laoreet.
+            
+            </p>
+          </div>
+            
+          <div class="pure-u-1-2">
+            <p><b>Number of Job Listings per State for each Classification:</b></p>
+            <div class="barchart" id="bar"></div> 
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porta massa et vehicula eleifend. Cras at diam at
+                est congue faucibus quis id augue. Nunc iaculis euismod velit euismod molestie. Maecenas eu odio leo. Sed tellus
+                velit, suscipit vel volutpat nec, interdum quis velit. Mauris interdum sapien sed arcu rutrum imperdiet. Vestibulum
+                ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+            
+                Nam scelerisque orci velit, sed aliquam est viverra quis. Duis purus libero, pharetra ac congue quis, tempus at
+                sapien. Proin euismod mi ut sodales aliquet. Curabitur aliquam metus eget nulla euismod tincidunt. Nullam hendrerit
+                in augue a dapibus. Vestibulum ac tincidunt nisl, ut tincidunt magna. Aliquam quis nibh eu ligula bibendum pretium
+                ac at massa. Praesent sagittis at justo id vehicula. Nunc ullamcorper purus ex, et tempor erat dignissim eget.
+                Aliquam malesuada massa id purus mattis, a imperdiet mauris rutrum. Etiam blandit mattis est, vitae sodales leo
+                facilisis sit amet. Integer eget ultrices tellus. Integer et mauris quis arcu rhoncus laoreet.
+            
+            </p>
+          </div>
+            
+    </div>
+
+
+
+
+
+    <script type="text/javascript">
+        var spec2 = "js/numOfListingBar.vg.json";
+        vegaEmbed('#bar', spec2).then(function (result) { }).catch(console.error);
+
+        var spec2 = "js/stateJobCount.vg.json";
+        vegaEmbed('#map', spec2).then(function (result) { }).catch(console.error);
+    </script>
+
+</body>
+
+</html>

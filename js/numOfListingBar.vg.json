@@ -1,0 +1,48 @@
+{
+  "height": 300,
+  "data": { "url": "https://raw.githubusercontent.com/HimsaraGallege/testRepo/main/JobClassification_state_ListingYear_Count.csv"},
+  "params": [
+      {
+          "name": "state_select",
+          "value": ["Victoria"],
+          "bind": {
+              "input": "select",
+              "options": [ "Australian Capital Territory", "New South Wales", "Northern Territories", "Queensland", "South Australia", "Tasmania", "Victoria", "Western Australia"],
+              "name": "State: "
+          }
+      }
+],
+  "transform": [{ "filter": "datum.state == state_select" }],
+  "mark": "bar",
+  "width": "container",
+  "encoding": {
+    "y": {"field": "jobClassification",
+          "sort": "x",
+          "title": "Classification"},
+          "axis": {
+              "domain": false,
+              "ticks": false,
+              "labelAngle": 0,
+              "labelPadding": 4
+          },
+    "x": {
+      "aggregate": "sum", "field": "Count",
+      "title": "Listings"
+    },
+    "text": {"field": "Count", "type": "nominal", "aggregate": "sum"},
+    "tooltip": [
+      {"title": "Classification","field": "jobClassification", "type": "nominal"},
+      {"title": "Listings", "field": "Count", "type": "quantitative", "aggregate": "sum"}
+    ]
+  },
+  "layer": [{
+    "mark": "bar"
+  }, {
+    "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "middle",
+      "dx": 7
+    }
+  }]
+}
