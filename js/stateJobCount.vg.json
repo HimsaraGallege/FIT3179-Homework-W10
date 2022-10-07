@@ -60,7 +60,7 @@
                                   300,
                                   400
                               ],
-                      "scheme": "blues"
+                      "scheme": "lighttealblue"
                   }
               },
               "tooltip": [{"title": "State","field": "state", "type": "nominal"},
